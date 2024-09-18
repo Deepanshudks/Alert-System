@@ -10,6 +10,8 @@ import Dash from './components/Dash'
 import UserDashboard from './components/UserDashboard'
 import { UserSignup } from './components/User/UserSignup'
 import LandingPage from './components/LandingPage'
+import UserLoginSignup from './components/UserLoginSignup'
+import LawLoginSignup from './components/LawLoginSignup'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -21,6 +23,8 @@ function App() {
       <Routes>
        <Route path='/'  element={<LandingPage/>}></Route>
        <Route path='/dashboard'  element={<UserDashboard/>}></Route>
+       <Route path='/userloginsignup'  element={<UserLoginSignup/>}></Route>
+       <Route path='/lawloginsignup'  element={<LawLoginSignup/>}></Route>
        <Route path='/userlogin'  element={<Userlogin/>}></Route>
        <Route path='/usersignup'  element={<UserSignup/>}></Route>
       </Routes>

@@ -26,7 +26,7 @@ export function Userlogin (){
    return <div className="flex items-center h-full w-screen justify-center flex-col bg-slate-200">
     <Toaster/>
     <div className="flex items-center flex-col justify-center  w-screen">
-    <div className="text-xl font-bold mt-2 rounded-xl">Welcome to Easy-Pay</div>
+    <div className="text-xl font-bold mt-2 rounded-xl">Welcome to Arista</div>
     <div className="text-base m-2 font-base text-zinc-500 mt-2">Enter your credentials to Login</div>
     </div>
 
@@ -43,7 +43,7 @@ export function Userlogin (){
         <p className=" text-base font-semibold text-zinc-600" >Don't have an account?</p>
         <div className="flex items-center mb-4">
         <p className="text-base font-normal text-zinc-600 px-2" >Create new account </p>
-        <p  className="cursor-pointer underline"><Link to="/signup">Sign Up</Link></p>
+        <p  className="cursor-pointer underline"><Link to="/usersignup">Sign Up</Link></p>
         </div>
     </div>
    </div>

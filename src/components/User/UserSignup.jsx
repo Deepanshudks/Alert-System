@@ -31,7 +31,7 @@ export function UserSignup() {
     return <div className="flex items-center h-full w-screen justify-center flex-col bg-slate-200">
         <Toaster />
         <div className="flex items-center flex-col justify-center  w-screen">
-            <div className="text-xl font-bold mt-2 rounded-xl">Welcome to Easy-Pay </div>
+            <div className="text-xl font-bold mt-2 rounded-xl">Welcome to Arista </div>
             <div className="text-base mt-2  font-base text-zinc-500 m-2">Enter your informations to create an account</div>
         </div>
 

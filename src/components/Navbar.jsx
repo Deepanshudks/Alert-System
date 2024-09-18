@@ -10,13 +10,15 @@ const Navbar = () => {
       {
         !login ?  <nav className="shadow sticky top-0 z-50 bg-black">
         <div className="container px-2 h-16 text-white sm:px-6 lg:px-8 mx-auto flex justify-between items-center">
-        <div className="flex flex-shrink-0 items-center">
+        <div onClick={()=>{
+          navigate("/")
+        }} className="flex flex-shrink-0 items-center">
                 <img className="h-8 w-auto invert" src={logo} alt="Arista" />
               </div>
           <div className="space-x-6">
             <a href="#contact" className=" px-4 py-2 rounded  hover:text-gray-400">Contact</a>
-            <Link to="/userlogin" className="bg-zinc-500 px-4 py-2 rounded hover:bg-zinc-600 hover:text-gray-400">Log in</Link>
-            <Link to="/usersignup" className=" bg-zinc-500 px-4 py-2 rounded hover:bg-zinc-600 hover:text-gray-400">Sign up</Link>
+            <Link to="/userloginsignup" className="bg-zinc-500 px-4 py-2 rounded hover:bg-zinc-600 hover:text-gray-400">Join as public</Link>
+            <Link to="/lawloginsignup" className=" bg-zinc-500 px-4 py-2 rounded hover:bg-zinc-600 hover:text-gray-400">Join as law</Link>
           </div>
         </div>
       </nav>:
