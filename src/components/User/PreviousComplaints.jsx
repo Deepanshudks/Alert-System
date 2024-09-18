@@ -1,42 +1,37 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const PreviousComplaints = () => {
   const [complaints, setComplaints] = useState([]);
+  const [errorMessage, setErrorMessage] = useState('');
 
-  // Simulate fetching complaints from an API or backend
-  useEffect(() => {
-    const fetchedComplaints = [
-      {
-        id: 1,
-        subject: 'Suspicious Activity near park',
-        description: 'There have been strangers lingering near the children’s playground.',
-        category: 'Suspicious Activity',
-        date: '2024-09-18',
-        contact: 'john.doe@gmail.com',
-      },
-      {
-        id: 2,
-        subject: 'Vandalism on Main Street',
-        description: 'Multiple cars were scratched overnight on Main Street.',
-        category: 'Vandalism',
-        date: '2024-09-17',
-        contact: 'jane.doe@gmail.com',
-      },
-      // Add more sample complaints here
-    ];
+  // useEffect(() => {
+  //   const fetchComplaints = async () => {
+  //     try {
+  //       const response = await axios.get('/api/law-enforcement/complaints');
+  //       setComplaints(response.data.complaints);
+  //     } catch (error) {
+  //       setErrorMessage('Failed to fetch complaints. Please try again later.');
+  //       console.error('Error fetching complaints:', error);
+  //     }
+  //   };
 
-    setComplaints(fetchedComplaints);
-  }, []);
+  //   fetchComplaints();
+  // }, []);
 
   return (
     <div className="min-h-screen bg-gray-100 p-6">
       <h2 className="text-3xl font-bold mb-6 text-center">Previous Complaints</h2>
 
+      {errorMessage && (
+        <p className="text-center text-red-500 mb-4">{errorMessage}</p>
+      )}
+
       {complaints.length > 0 ? (
         <div className="max-w-4xl mx-auto">
           {complaints.map((complaint) => (
             <div
-              key={complaint.id}
+              key={complaint.complaintId}
               className="bg-white p-6 mb-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
             >
               <h3 className="text-xl font-semibold mb-2">{complaint.subject}</h3>
@@ -47,7 +42,7 @@ const PreviousComplaints = () => {
                 <strong>Description:</strong> {complaint.description}
               </p>
               <p className="text-gray-500 mb-2">
-                <strong>Date:</strong> {complaint.date}
+                <strong>Date:</strong> {new Date(complaint.createdAt).toLocaleDateString()}
               </p>
               <p className="text-gray-500">
                 <strong>Contact:</strong> {complaint.contact}

@@ -16,7 +16,7 @@ const LocationBasedAlerts = () => {
 
             try {
               // Fetch alerts based on the user's location
-              const response = await axios.get(`/api/alerts`, {
+              const response = await axios.get(`/api/alerts/nearby`, {
                 params: { latitude, longitude }
               });
 

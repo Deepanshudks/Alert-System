@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const RegisterComplains = () => {
   const [complaintDetails, setComplaintDetails] = useState({
@@ -7,22 +8,72 @@ const RegisterComplains = () => {
     category: '',
     contact: '',
   });
+  const [location, setLocation] = useState({ latitude: null, longitude: null });
+  const [message, setMessage] = useState('');
+
+  // Get the user's location
+  const getLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setLocation({
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+          });
+        },
+        (error) => {
+          console.error('Error getting location:', error);
+          setMessage('Could not get your location. Please enable location services.');
+        }
+      );
+    } else {
+      setMessage('Geolocation is not supported by this browser.');
+    }
+  };
+
+  // Call getLocation when the component mounts
+  React.useEffect(() => {
+    getLocation();
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setComplaintDetails({ ...complaintDetails, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Logic to handle form submission (e.g., sending to backend or law enforcement system)
-    console.log('Complaint Submitted:', complaintDetails);
+
+    try {
+      // Send complaint details and location to the backend
+      const response = await axios.post('/api/complaints/register', {
+        ...complaintDetails,
+        location,
+      });
+
+      if (response.status === 201) {
+        setMessage('Complaint registered successfully!');
+        setComplaintDetails({
+          subject: '',
+          description: '',
+          category: '',
+          contact: '',
+        });
+      } else {
+        setMessage('Failed to register complaint. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error registering complaint:', error);
+      setMessage('An error occurred while registering your complaint.');
+    }
   };
 
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center">
       <div className="bg-white p-8 rounded-lg shadow-lg max-w-lg w-full">
         <h2 className="text-2xl font-bold mb-6">Register a Complaint</h2>
+
+        {message && <p className="text-center mb-4">{message}</p>}
 
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Subject */}

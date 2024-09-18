@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import RegisterComplains from './RegisterComplains';
 import PreviousComplaints from './PreviousComplaints';
 import AlertsPage from './AlertPage';
+import RegisterComplains from './RegisterComplains';
 
 const UserDashboard = () => {
  

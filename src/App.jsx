@@ -1,17 +1,16 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import Dashoard from './components/User/UserDashboard'
 import Navbar from './components/Navbar'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { Userlogin } from './components/User/Userlogin'
-import Dash from './components/Dash'
 import UserDashboard from './components/User/UserDashboard'
-import { UserSignup } from './components/User/UserSignup'
 import LandingPage from './components/LandingPage'
 import UserLoginSignup from './components/User/UserLoginSignup'
 import LawLoginSignup from './components/LawLoginSignup'
+import UserLogin from './components/User/Userlogin'
+import UserSignup from './components/User/UserSignup'
+import LocationBasedAlerts from './Location'
+
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -21,15 +20,16 @@ function App() {
     <BrowserRouter>
     <Navbar/>
       <Routes>
-       <Route path='/'  element={<LandingPage/>}></Route>
-       <Route path='/dashboard'  element={<UserDashboard/>}></Route>
+       <Route exact path='/'  element={<LandingPage/>}></Route>
+       <Route path='/userdashboard'  element={<UserDashboard/>}></Route>
        <Route path='/userloginsignup'  element={<UserLoginSignup/>}></Route>
        <Route path='/lawloginsignup'  element={<LawLoginSignup/>}></Route>
-       <Route path='/userlogin'  element={<Userlogin/>}></Route>
+       <Route path='/userlogin'  element={<UserLogin/>}></Route>
        <Route path='/usersignup'  element={<UserSignup/>}></Route>
       </Routes>
         
     </BrowserRouter>
+    {/* <LocationBasedAlerts/> */}
     </>
   )
 }
