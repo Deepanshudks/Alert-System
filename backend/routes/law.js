@@ -1,5 +1,5 @@
 const express = require('express');
-const { getAllComplaints } = require('./db'); // Import the in-memory database
+const { getAllComplaints } = require('../db/db'); // Import the in-memory database
 const router = express.Router();
 
 // GET route to fetch all complaints

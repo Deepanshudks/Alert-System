@@ -1,6 +1,6 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
-const { addUser, findUserByEmail } = require('./db'); // Import the in-memory database functions
+const { addUser, findUserByEmail } = require('../db/db'); // Import the in-memory database functions
 const { v4: uuidv4 } = require('uuid'); // To generate unique complaint IDs
 const { addComplaint } = require('../db/db'); // Import the in-memory database
 
