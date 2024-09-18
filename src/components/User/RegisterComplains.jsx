@@ -46,7 +46,7 @@ const RegisterComplains = () => {
 
     try {
       // Send complaint details and location to the backend
-      const response = await axios.post('/api/complaints/register', {
+      const response = await axios.post('/api/user/complaints/register', {
         ...complaintDetails,
         location,
       });
