@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import RegisterComplains from './RegisterComplains';
+import PreviousComplaints from './PreviousComplaints';
+import AlertsPage from './AlertPage';
 
 const UserDashboard = () => {
  
@@ -11,9 +13,9 @@ const UserDashboard = () => {
         case "new":
           return <RegisterComplains />;
         case "previous":
-          return <PreviousComplaint />;
+          return <PreviousComplaints />;
         case "alert":
-          return <Alert />;
+          return <AlertsPage />;
         default:
           return <RegisterComplains />;
       }

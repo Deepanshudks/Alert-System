@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import RegisterComplains from "./RegisterComplains";
+import RegisterComplains from "./User/RegisterComplains";
 
 // Placeholder components for each section
 const PreviousComplaint = () => {

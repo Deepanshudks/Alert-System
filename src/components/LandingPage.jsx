@@ -7,7 +7,7 @@ const LandingPage = () => {
      
 
       {/* Hero Section */}
-      <section className="bg-cover bg-center h-screen text-white" style={{ backgroundImage: 'url("https://wallpapercave.com/wp/wp11051717.jpg")' }}>
+      <section className="opacity-85 bg-cover bg-center h-screen text-white" style={{ backgroundImage: 'url("https://wallpapercave.com/wp/wp11051717.jpg")' }}>
         <div className="container mx-auto h-full flex items-center">
           <div className="max-w-xl">
             <h2 className="text-4xl font-bold mb-4">Stay Alert, Stay Safe with Arista</h2>
