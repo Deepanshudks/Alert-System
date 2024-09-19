@@ -43,7 +43,7 @@ const RegisterComplains = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    // console.log(complaintDetails)
     try {
       // Send complaint details and location to the backend
       const response = await axios.post('/api/user/complaints/register', {

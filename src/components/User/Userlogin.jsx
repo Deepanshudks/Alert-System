@@ -13,7 +13,7 @@ const UserLogin = () => {
 
   const onSubmit = async (data) => {
     try {
-      const response = await axios.post('/api/login', data);
+      const response = await axios.post('/api/user/login', data);
       console.log('User logged in successfully:', response.data);
       navigate("/userdashboard")
     } catch (error) {

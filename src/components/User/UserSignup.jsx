@@ -15,7 +15,7 @@ const UserSignup = () => {
 
   const onSubmit = async (data) => {
     try {
-      const response = await axios.post('/api/signup', data);
+      const response = await axios.post('/api/user/signup', data);
       console.log('User signed up successfully:', response.data);
       navigate("/userdashboard")
 
